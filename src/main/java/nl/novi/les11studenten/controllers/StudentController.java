@@ -51,7 +51,7 @@ public class StudentController {
         // Geeft: http://localhost:8080/students/1 in Postman:  Headers > Location. Waar 1 is de id van de entry
         URI uri = URI.create(ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/" + student.getStudentNr()).toUriString());
-//        return ResponseEntity.ok().build();
+        // return ResponseEntity.ok().build(); // Stuurt niets terug qua body na posten in Postman
         return ResponseEntity.created(uri).body(student);
     }
 
