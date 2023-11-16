@@ -1,16 +1,28 @@
+// https://www.youtube.com/watch?v=8SGI_XS5OPw (Amigoscode, Spring Boot Tutorial | Spring Data JPA | 2021)
+// @NotNull(message = "This isn't allowed to be Null ") ?
 package nl.novi.les11studenten.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
+// Amigoscode: @Entity: It's good practice to be explicit about the name in combination with the name of the class. Ook in het geval van lange class namen, kun je een korte Entity naam kiezen.
+@Entity(name = "Student")
+@Table(name = "Students")
 public class Student {
 
     @Id
     @GeneratedValue
-    private Long studentNr ;
+    @Column(
+            name = "student_nr",
+            updatable = false
+    )
+    private Long studentNr;
+    @Column(name = "full_name",
+            nullable = false, // NOT NULL
+            columnDefinition = "TEXT" // Data TYPE = TEXT ipv Varchar(255)
+//            unique = true
+    )
     private String fullName;
+    @Column(name = "phone_number")
     private int phoneNumber;
 
     // 2x Constructors/ Lombok: 1x @NoArgsConstructor en 1x @AllArgsConstructor
