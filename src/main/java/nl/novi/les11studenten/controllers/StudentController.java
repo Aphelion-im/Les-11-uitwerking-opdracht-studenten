@@ -41,12 +41,11 @@ public class StudentController {
         return new ResponseEntity<>(studentRepository.findAll(), HttpStatus.OK);
     }
 
-    // Waarom een Optional als return value in een POST request? Waarschijnlijk omdat het nog niet duidelijk is wat er gaat worden meegegeven qua data type/info
     // Dit bevat nog geen validatie en NullPointerException beveiliging.
     // Getters en setters vereist (Student.java) om een JSON object te posten en terug te krijgen!
     // Bij elke ResponseEntity.created() een URI uri meegeven.
     @PostMapping
-    public ResponseEntity<?> postStudent(@RequestBody Student student) { // <?> Wildcard generic data type. Yet unknown type.
+    public ResponseEntity<?> postStudent(@RequestBody Student student) { // Generic met <?> Wildcard data type. Yet unknown type.
         studentRepository.save(student);
         // Geeft: http://localhost:8080/students/1 in Postman:  Headers > Location. Waar 1 is de id van de entry
         URI uri = URI.create(ServletUriComponentsBuilder
