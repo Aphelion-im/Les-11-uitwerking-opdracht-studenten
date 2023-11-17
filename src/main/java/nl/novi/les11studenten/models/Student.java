@@ -26,7 +26,11 @@ public class Student {
     private int phoneNumber;
 
     // 2x Constructors/ Lombok: 1x @NoArgsConstructor en 1x @AllArgsConstructor
-    // Waar zijn deze constructors voor nodig in Spring Boot?
+    // Waar zijn deze constructors voor nodig in Spring Boot? Les 11 Tech IT Easy:
+    // Constructors hoeven niet per se aangemaakt te worden. Java maakt automatisch een default constructor (achter de schermen).
+    // Let er op dat wanneer je een eigen constructor maakt, bijvoorbeeld een constructor met alle gevraagde variabelen,
+    // dan verdwijnt de automatische default constructor. Je moet dan zelf ook een default constructor maken.
+    // Je maakt dus nooit 1 constructor. Het is 0 of 2, 3, 4, etc.
     public Student(Long studentNr, String fullName, int phoneNumber) {
         this.studentNr = studentNr;
         this.fullName = fullName;
