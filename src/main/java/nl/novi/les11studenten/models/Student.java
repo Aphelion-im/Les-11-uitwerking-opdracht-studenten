@@ -37,6 +37,9 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
+    // Marco Codes: "Also make sure to have an empty constructor, as it may give issues with converting your
+    // Java class to JSON"
+    // https://youtu.be/QuvS_VLbGko?si=y3KlPR_OEf70dFfq&t=1052
     public Student() {
 
     }
